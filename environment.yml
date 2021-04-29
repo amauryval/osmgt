@@ -6,8 +6,8 @@ channels:
   - defaults
 dependencies:
   - python=3.8
-  - geopandas=0.8.0
-  - gdf2bokeh=2.0.1
+  - geopandas>=0.8.0
+  - gdf2bokeh=2.1.2
   - numpy=1.18.1
   - geojson=2.5.0
   - python-dateutil=2.8.1

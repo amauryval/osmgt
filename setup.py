@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 # used by meta.yaml, do not forget space
 requirements = [
-    "geopandas ==0.8.0",
+    "geopandas >=0.8.0",
     "requests ==2.23.0",
     "numpy ==1.18.1",
     "geojson ==2.5.0",
@@ -24,7 +24,7 @@ setup(
     author="amauryval",
     author_email='amauryval@gmail.com',
     url="https://github.com/amauryval/osmgt",
-    version='0.7.10',
+    version='0.7.11',
     description="A library to play with OSM roads (and POIs) data using graph tool network library",
     entry_points={},
     install_requires=requirements,

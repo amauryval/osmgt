@@ -23,6 +23,8 @@ from shapely.geometry import box
 
 from osmgt.helpers.global_values import osm_url
 
+from osmgt.helpers.misc import chunker
+
 
 class ErrorOsmGtCore(Exception):
     pass
@@ -157,27 +159,24 @@ class OsmGtCore(Logger):
 
         if not isinstance(self._output_data, gpd.GeoDataFrame):
             # more performance comparing .from_features() method
-            print("a")
-            from osmgt.helpers.misc import chunker
             df = pd.DataFrame()
             for chunk in chunker(self._output_data, 100000):
                 df_tmp = pd.DataFrame(chunk)
                 df = pd.concat((df, df_tmp), axis=0)
             df: pd.DataFrame = pd.DataFrame(self._output_data)
-            print("b")
+
             geometry = df[self._GEOMETRY_FIELD]
             output_gdf: gpd.GeoDataFrame = gpd.GeoDataFrame(
                 df.drop([self._GEOMETRY_FIELD], axis=1),
                 crs=f"EPSG:{epsg_4326}",
                 geometry=geometry.to_list(),
             )
-            print("c")
 
         else:
             output_gdf: gpd.GeoDataFrame = self._output_data
 
         self._check_build_input_data(output_gdf)
-        print("d")
+
         output_gdf: gpd.GeoDataFrame = self._clean_attributes(output_gdf)
 
         self.logger.info("GeoDataframe Ready")

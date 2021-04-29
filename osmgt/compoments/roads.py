@@ -12,6 +12,7 @@ from osmgt.compoments.core import OsmGtCore
 from osmgt.compoments.core import EmptyData
 
 from osmgt.geometry.network_topology import NetworkTopology
+
 from osmgt.geometry.geom_helpers import compute_wg84_line_length
 from osmgt.geometry.geom_helpers import linestring_points_fom_positions
 

@@ -88,7 +88,7 @@ class NetworkTopology:
 
         self._network_data: Union[List[Dict], Dict] = self._check_inputs(network_data)
         self._mode_post_processing = mode_post_processing
-        self._improve_line_output = improve_line_output
+        self._improve_line_output = improve_line_output  # link to __INTERPOLATION_LINE_LEVEL
 
         self._additional_nodes = additional_nodes
         if self._additional_nodes is None:

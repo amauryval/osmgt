@@ -8,14 +8,10 @@ from itertools import chain
 import geopandas as gpd
 import pandas as pd
 
-try:
-    from graph_tool.topology import shortest_path
-except ModuleNotFoundError:
-    pass
+from graph_tool.topology import shortest_path
 
 from shapely.geometry import Point
 from shapely.geometry import LineString
-
 from shapely.ops import linemerge
 from shapely.wkt import loads
 

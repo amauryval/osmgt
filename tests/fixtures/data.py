@@ -43,6 +43,10 @@ def isochrone_values():
 def isochrone_distance_values():
     return [250, 500, 1000]
 
+@pytest.fixture
+def isochrone_distance_values2():
+    return [500, 1000, 1500]
+
 
 @pytest.fixture
 def point_a():
@@ -187,6 +191,14 @@ def points_gdf_from_coords():
     point_a = Point(451754.566, 5786544.841)
     point_b = Point(454531.361, 5789346.920)
     return gpd.GeoDataFrame(index=[0, 1], crs="EPSG:3857", geometry=[point_a, point_b])
+
+
+@pytest.fixture
+def points_gdf_from_coords2():
+    point_a = Point(4.056578, 46.041645)
+    point_b = Point(4.070440, 46.042196)
+    return gpd.GeoDataFrame(index=[0, 1], crs="EPSG:3857", geometry=[point_a, point_b])
+
 
 
 @pytest.fixture
